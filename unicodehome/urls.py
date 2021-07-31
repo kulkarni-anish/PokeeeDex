@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Pokedex.views import home_view,dynamic_view,type_view,search_view
+from Pokedex.views import common_dynamic_view, commonsearch_view, home_view,dynamic_view,type_view,search_view,pokemon_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +23,7 @@ urlpatterns = [
     path('types/<>/',dynamic_view, name='dynamic'),
     path('types/',type_view, name='type'),
     path('search/',search_view, name='search'),
+    path('pokemon/<>/', pokemon_view, name='pokemon'),
+    path('commonsearch/<>',common_dynamic_view, name='common_search'),
+    path('commonsearch/',commonsearch_view),
 ]

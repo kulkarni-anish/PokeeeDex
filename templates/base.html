@@ -8,6 +8,13 @@
     <h1>Gotta Catch'em All</h1>
 </head>
 
+<form action={% url 'common_search' %}  method="POST">
+    {% csrf_token %}
+
+    <input type='text' name='title'  placeholder='Search for a type or Pokemon'/>
+    <input type='submit' value='Go' />
+</form>
+
 {% block content %}
 <body>
     

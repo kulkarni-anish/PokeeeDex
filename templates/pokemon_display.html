@@ -9,15 +9,15 @@
 </head>
 {% block content %}
 <body>
-    <strong>
-        <h2>List of types</h2>
-    </strong>
-    <ol>
-        {% for types in newdata %}
-            <li> {{ types|capfirst }} </li>
-        {% endfor %}
-    </ol>  
 
+    {{ name|upper|capfirst }}<br>
+    <img src="{{ sprites.front_default }}" alt="home"><br>
+    Id: {{ id }}<br>
+    Base experience: {{ base_experience}}<br>
+    Height: {{ height }}<br>
+    Weight: {{ weight }}<br>
+    
+    
 </body>
 {% endblock %}
 </html>

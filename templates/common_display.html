@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% block content %}
+<body>
+
+
+    {% if forms %}
+        {{ name|upper|capfirst }}<br>
+        <img src="{{ sprites.front_default }}" alt="home"><br>
+        Id: {{ id }}<br>
+        Base experience: {{ base_experience}}<br>
+        Height: {{ height }}<br>
+        Weight: {{ weight }}<br>
+    {% endif %}
+    
+
+    {% if pokemon_list %}
+        <strong>List of {{ common_id|capfirst }} type Pokemon</strong>
+        <ol>
+            {% for pokemon in pokemon_list %}
+                <li> {{ pokemon|capfirst }} </li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+    
+    
+    
+</body>
+{% endblock %}
+</html>
