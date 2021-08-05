@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ol>
+    {% for instance in object_list %}
+    <p><strong><li>{{ instance.name|upper}}</li></strong><br>
+        <img src="{{ instance.sprite }}" ><br>
+        PokeDex ID:{{ instance.pokedex_id }}<br>
+        Base Experience:{{ instance.base_experience }}<br>
+        Height:{{ instance.height }}<br>
+        Weight:{{ instance.weight }}<br>
+        Type:{{ instance.type|capfirst }}<br>
+        Level:{{ instance.level }}<br>
+    </p>
+    {% endfor %}
+</ol>
+
+
+{% endblock %}

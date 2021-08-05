@@ -12,7 +12,7 @@
     <strong>List of {{ type_id|capfirst }} type Pokemon</strong>
     <ol>
         {% for pokemon in pokemon_list %}
-            <li> {{ pokemon|capfirst }} </li>
+            <li><a href="/pokemon/{{pokemon}}">{{ pokemon|capfirst }}</a></li>
         {% endfor %}
     </ol>    
     

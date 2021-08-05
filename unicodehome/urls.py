@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Pokedex.views import common_dynamic_view, commonsearch_view, home_view,dynamic_view,type_view,search_view,pokemon_view
+from Pokedex.views import common_dynamic_view,home_view,type_view,commonsearch_view,pokemon_view,mypokemon_list_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home_view),
-    path('types/<>/',dynamic_view, name='dynamic'),
     path('types/',type_view, name='type'),
-    path('search/',search_view, name='search'),
-    path('pokemon/<>/', pokemon_view, name='pokemon'),
-    path('commonsearch/<>',common_dynamic_view, name='common_search'),
-    path('commonsearch/',commonsearch_view),
+    path('types/<slug:type_id>/',type_view, name='dynamic'),
+    path('pokemon/',pokemon_view),
+    path('pokemon/<slug:id>/', pokemon_view, name='pokemon'),
+    path('search/',commonsearch_view, name='search'),
+    path('search/<>',common_dynamic_view, name='common_search'),
+    path('mypokemon/',mypokemon_list_view),
 ]

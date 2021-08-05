@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+{% block content %}
+<body>
+    <ol>
+        {% for pokemon in newdata %}
+            <li>{{ pokemon|capfirst }} </li>
+        {% endfor %}
+    </ol>  
+
+    
+</body>
+{% endblock %}
+</html>

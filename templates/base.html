@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+    <ul>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/types/'>Pokemon Types</a></li>
+        <li><a href='/mypokemon/'>Pokemon Caught</a></li>
+        <li><a href='/pokemon/'>All 1118 Pokemon</a></li>
+    </ul>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +13,47 @@
     <title>PokeDex</title>
     <h1>Gotta Catch'em All</h1>
 </head>
+<style>ul {
+    list-style-type: none;
+    position: absolute;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  li a.active {
+    background-color: #db2932;
+    color: white;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  </style>
+
+
 
 <form action={% url 'common_search' %}  method="POST">
     {% csrf_token %}
 
-    <input type='text' name='title'  placeholder='Search for a type or Pokemon'/>
+    <input type='text' name='title'  placeholder='Search for a type or Pokemon' height=1000px/>
     <input type='submit' value='Go' />
 </form>
+<br>
+<br>
 
 {% block content %}
 <body>

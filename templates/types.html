@@ -10,11 +10,11 @@
 {% block content %}
 <body>
     <strong>
-        <h2>List of types</h2>
+        <h2>List of Pokemon types</h2>
     </strong>
     <ol>
         {% for types in newdata %}
-            <li> {{ types|capfirst }} </li>
+            <li><a href="/types/{{types}}">{{ types|capfirst }} </a></li>
         {% endfor %}
     </ol>  
 
