@@ -18,6 +18,7 @@ An invalid query will raise an Http404 error.
 
 ## Pages
 Pokemon Types lists all 20 types and one can click on any type to view a list of all pokemon of that type
+
 ![image](https://user-images.githubusercontent.com/80095817/128559086-9fb6c9e0-01fc-4c7a-a6b1-1ce833585739.png)
 
 ## My Pokemon Model
