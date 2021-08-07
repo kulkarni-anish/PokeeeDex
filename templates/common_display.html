@@ -12,22 +12,22 @@
         <h3>{{ name|upper }}</h3><br>
         <img src="{{ sprites.front_default }}" alt="Image of {{ common_id }}"height=150px width=150px>
         <img src="https://img.pokemondb.net/artwork/large/{{common_id}}.jpg" height=125px width=125px><br>
-        Id: {{ id }}<br>
-        Base experience: {{ base_experience}}<br>
-        Height: {{ height }}<br>
-        Weight: {{ weight }}<br>
-        Type: {{ types|capfirst }}
-
+        <br>
+        <strong>Pokemon ID</strong>      : {{ id }}<br>
+        <strong>Base Experience</strong> : {{ base_experience }}<br>
+        <strong>Height</strong>          : {{ height }}<br>
+        <strong>Weight </strong>         : {{ weight }}<br>
+        <strong>Type</strong>            : {{ types|capfirst }}<br>
     {% endif %}
     
 
     {% if pokemon_list %}
-        <strong>List of {{ common_id|capfirst }} type Pokemon</strong>
+        <h3>List of {{ type_id|capfirst }} type Pokemon</h3>
         <ol>
             {% for pokemon in pokemon_list %}
-                <li> {{ pokemon|capfirst }} </li>
+                <li><a href="/pokemon/{{pokemon}}">{{ pokemon|capfirst }}</a></li>
             {% endfor %}
-        </ol>
+        </ol>   
     {% endif %}
     
     

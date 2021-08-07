@@ -11,7 +11,7 @@ def home_view(request):
     rendered = render(request, 'home.html')
     return HttpResponse(rendered)
 
-
+#For displaying list of all types or all pokemon of a single type
 def type_view(request,type_id=0):
     if type_id==0:
         response = requests.get('https://pokeapi.co/api/v2/type/')
@@ -38,7 +38,7 @@ def type_view(request,type_id=0):
     return HttpResponse(rendered)
 
 
-
+#For displaying a single pokemon or all 1118 pokemon
 def pokemon_view(request,id=0):
     if id==0:
         response = requests.get('https://pokeapi.co/api/v2/pokemon?limit=1118')
@@ -47,24 +47,28 @@ def pokemon_view(request,id=0):
         newdata=[]
         for pokemon_type in data:
             newdata.append(pokemon_type['name'])
-            rendered = render(request, 'all_pokemon.html', {'newdata': newdata})
+        rendered = render(request, 'all_pokemon.html', {'newdata': newdata})
         return HttpResponse(rendered)
 
     response = requests.get('https://pokeapi.co/api/v2/pokemon/{}'.format(id))
-    context  = response.json()
-    
-    
-    rendered = render(request, 'pokemon_display.html', context)
+    dict2  = response.json()
+    types  = dict2['types']
+    type_list=[]
+    for items in types:
+        type_list.append(items['type']['name'])
+    dict2 = dict2 | {'types':','.join(type_list)}
+
+    rendered = render(request, 'pokemon_display.html', dict2)
     return HttpResponse(rendered)
 
-
+#For the results of search bar
 def common_dynamic_view(request):
     dict1={}
     dict2={}
     common_id=request.POST['title']
     if common_id=='':
         raise Http404
-    print(common_id)
+    
     response1  = requests.get('https://pokeapi.co/api/v2/type/{}'.format(common_id))
     response2 = requests.get('https://pokeapi.co/api/v2/pokemon/{}'.format(common_id))
 
@@ -106,7 +110,7 @@ def common_dynamic_view(request):
                 weight  = dict2['weight'],
                 type    = dict2['types'],
                 sprite  = dict2['sprites']['front_default']
-                )
+            )
             
         common_context= dict2 | {'common_id':common_id}
         return render(request, 'common_display.html', common_context)
@@ -116,14 +120,10 @@ def common_dynamic_view(request):
         raise Http404
 
 
-
+#Model display
 def mypokemon_list_view(request):
     queryset = MyPokemon.objects.all()
     context = {
         "object_list": queryset
     }
     return render(request,"mypokemon_display.html",context)
-    
-def commonsearch_view(request):
-    
-    return render(request,'common_search.html')

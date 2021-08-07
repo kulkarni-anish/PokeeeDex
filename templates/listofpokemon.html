@@ -9,7 +9,7 @@
 </head>
 {% block content %}
 <body>
-    <strong>List of {{ type_id|capfirst }} type Pokemon</strong>
+    <h3>List of {{ type_id|capfirst }} type Pokemon</h3>
     <ol>
         {% for pokemon in pokemon_list %}
             <li><a href="/pokemon/{{pokemon}}">{{ pokemon|capfirst }}</a></li>

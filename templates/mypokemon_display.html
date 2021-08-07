@@ -2,17 +2,20 @@
 
 {% block content %}
 <ol>
+    
     {% for instance in object_list %}
-    <p><strong><li>{{ instance.name|upper}}</li></strong><br>
+        <h3><li>{{ instance.name|upper}}</li></h3><br>
         <img src="{{ instance.sprite }}" ><br>
-        PokeDex ID:{{ instance.pokedex_id }}<br>
-        Base Experience:{{ instance.base_experience }}<br>
-        Height:{{ instance.height }}<br>
-        Weight:{{ instance.weight }}<br>
-        Type:{{ instance.type|capfirst }}<br>
-        Level:{{ instance.level }}<br>
-    </p>
+
+        <strong>Pokemon ID</strong>      : {{ instance.pokedex_id }}<br>
+        <strong>Base Experience</strong> : {{ instance.base_experience }}<br>
+        <strong>Height</strong>          : {{ instance.height }}<br>
+        <strong>Weight </strong>         : {{ instance.weight }}<br>
+        <strong>Type</strong>            : {{ instance.type|capfirst }}<br>
+        <strong>Level </strong>          : {{ instance.level }}<br>
+       
     {% endfor %}
+
 </ol>
 
 

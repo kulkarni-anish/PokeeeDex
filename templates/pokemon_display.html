@@ -10,13 +10,15 @@
 {% block content %}
 <body>
 
-    {{ name|upper|capfirst }}<br>
-    <img src="{{ sprites.front_default }}" alt="home"><br>
-    Id: {{ id }}<br>
-    Base experience: {{ base_experience}}<br>
-    Height: {{ height }}<br>
-    Weight: {{ weight }}<br>
-    
+    <h3>{{ name|upper }}</h3><br>
+    <img src="{{ sprites.front_default }}" alt="home"height=125px width=125px>
+    <img src="https://img.pokemondb.net/artwork/large/{{ name }}.jpg" height=100px width=100px><br>
+    <br>
+    <strong>Pokemon ID</strong>      : {{ id }}<br>
+    <strong>Base Experience</strong> : {{ base_experience }}<br>
+    <strong>Height</strong>          : {{ height }}<br>
+    <strong>Weight </strong>         : {{ weight }}<br>
+    <strong>Type</strong>            : {{ types|capfirst }}<br>
     
 </body>
 {% endblock %}
