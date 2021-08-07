@@ -15,6 +15,3 @@ for i in reversed(dict):
 
 maxkey=print("Most repeated word:", max(dict,key=dict.get))
 minkey = print("Least repeated word:", min(dict,key=dict.get))
-
-for i in set(dict.values()):
-    print(i,end=" ")
